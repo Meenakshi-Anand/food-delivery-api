@@ -1,0 +1,4 @@
+config/application.yml
+dump.rdb
+log/*
+tmp
