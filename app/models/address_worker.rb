@@ -1,4 +1,5 @@
 require 'net/http'
+
 class AddressWorker < ApplicationRecord
   include Sidekiq::Worker
   # sidekiq_options retry: false
