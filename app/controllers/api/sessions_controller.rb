@@ -1,3 +1,4 @@
+require 'json'
 class Api::SessionsController < ApplicationController
   skip_before_action :authenticate
 
@@ -6,7 +7,8 @@ class Api::SessionsController < ApplicationController
 
       if @user && @user.authenticate(params[:password])
          @jwt = Auth.issue({user: @user.id})
-        render json: [user: @user, jwt: @jwt ]
+
+        render :show
       else
         render json: ["Invalid Username or Password"], status: 422
       end
