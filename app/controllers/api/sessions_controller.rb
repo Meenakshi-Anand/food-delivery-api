@@ -7,7 +7,6 @@ class Api::SessionsController < ApplicationController
 
       if @user && @user.authenticate(params[:password])
          @jwt = Auth.issue({user: @user.id})
-
         render :show
       else
         render json: ["Invalid Username or Password"], status: 422
